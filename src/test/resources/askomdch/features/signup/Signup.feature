@@ -1,53 +1,43 @@
+@register
 Feature: User Registration
-
 
   As a new user
   I want to create a account through the registration form
   So that my credentials are saved in the system
 
-
   Background:
-    Given I am on any page of AskomDch website
-    When I click on the "Account" link in the navigation bar
+    Given As I'm on the AskOmDch Account Page
 
+  @positiveScenario
   Scenario Outline: Registering successful
-
     When I enter "<Username>" "<Email address>" and "<Password>" in the registration form
-    And I click the "REGISTER" button
-    Then I should be directed to Dashboard
-
-
+    And I click the "Register" button
+    Then I get redirected to Dashboard Page
+    And I should see welcome message
     Examples:
-      | Username    | Email address              | Password |
-      | newAppUser1 | newAppUser1@example01.com  | Pass123! |
-      | newAppUser2 | newAppUser21@example01.com | Pass456! |
+      | Username      | Email address               | Password |
+      | newAppUser1000 | newAppUser1000@example01.com | Pass123! |
+      | newAppUser2000 | newAppUser2000@example01.com | Pass456! |
 
-
-  @registration @negative
+  @negativeScenario
   Scenario Outline: Registration with missing required fields
-    When I enter username "<username>" in registration form
-    And I enter email "<email>" in registration form
-    And I enter password "<password>" in registration form
-    And I click on Register button
+    When I enter "<username>" "<emailAddress>" and "<password>" in the registration form
+    And I click the "Register" button
     Then I should see error "<error_message>"
-
-
     Examples:
-      | username    | email                   | password   | error_message                         |
-      |             | newuser999@example.com  | Test@12345 | Please enter a valid account username |
-      | testuser123 |                         | Test@12345 | Please provide a valid email address  |
-      | testuser999 | testuser999@example.com |            | Please enter an account password      |
+      | username    | emailAddress            | password   | error_message                         |
+      |             | newuser999@example.com  | Test@12345 | Error: Please enter a valid account username. |
+      | testuser123 |                         | Test@12345 | Error: Please provide a valid email address.  |
+      | testuser999 | testuser999@example.com |            | Error: Please enter an account password.      |
 
 
-  @registration @negative
+  @negativeScenario
   Scenario Outline: Registration fails when username or email already exists
-    When I enter username "<username>" in registration form
-    And I enter email "<email>" in registration form
-    And I enter password "<password>" in registration form
-    And I click on Register button
+    When I enter "<username>" "<emailAddress>" and "<password>" in the registration form
+    And I click the "Register" button
     Then I should see error "<error_message>"
 
     Examples:
-      | username    | email                      | password | error_message                                                                   |
-      | newAppUser1 | newAppUser1@example01.com  | Pass123! | Error: An account is already registered with your email address. Please log in. |
-      | newAppUser2 | newAppUser21@example01.com | Pass456! | Error: An account is already registered with your email address. Please log in. |
+      | username      | emailAddress                | password | error_message                                                                   |
+      | newAppUser100 | newAppUser100@example01.com | Pass123! | Error: An account is already registered with your email address. Please log in. |
+      | newAppUser200 | newAppUser200@example01.com | Pass456! | Error: An account is already registered with your email address. Please log in. |

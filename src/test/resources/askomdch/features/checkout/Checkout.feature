@@ -1,3 +1,4 @@
+@checkout
 Feature: checkout functionality
 
   As a customer
@@ -5,7 +6,8 @@ Feature: checkout functionality
   so that I can purchase the products
 
   Scenario: Successful checkout with valid shipping and payment details
-    Given I add "Blue Shoes" in my cart
+    Given I am on the store page
+    When I add "Blue Shoes" in my cart
     And I am on the checkout page
     When I provide valid shipping details
       | firstName     | The-User1       |

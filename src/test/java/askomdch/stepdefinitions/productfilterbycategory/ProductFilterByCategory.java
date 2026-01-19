@@ -1,41 +1,33 @@
 package askomdch.stepdefinitions.productfilterbycategory;
 
-import askomdch.dependencyinjection.UtilClass;
+import askomdch.pages.StorePage;
 import askomdch.utils.DriverFactory;
+import askomdch.utils.WebsiteStateManager;
 import io.cucumber.java.en.*;
 import org.junit.Assert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.time.Duration;
+import org.openqa.selenium.WebDriver;
+
 
 public class ProductFilterByCategory {
     private WebDriver driver = DriverFactory.getDriver();
+    private final WebsiteStateManager websiteStateManager = new WebsiteStateManager(driver);
+    private final StorePage storePage = new StorePage(driver);
 
-    private By dropdownField = By.id("product_cat");
 
     @Given("I am on the store page")
     public void i_am_on_the_store_page() {
-        driver.get(UtilClass.SITEURL+"store");
+        websiteStateManager.loadPage("store");
     }
 
     @When("I select category {string}")
     public void i_select_category(String category) {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        WebElement dropdown = wait.until(ExpectedConditions.elementToBeClickable(dropdownField));
-        dropdown.click();
-        String xpathExpression = "//option[contains(text(), '" + category + "')]";
-        driver.findElement(By.xpath(xpathExpression)).click();
+        storePage.chooseOptionFromDropDown(category);
     }
 
     @Then("I should see {string} in the url")
     public void i_should_see_in_the_url(String expected) {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
-        boolean success = wait.until(ExpectedConditions.urlContains(expected.toLowerCase()));
-        Assert.assertTrue(success);
-        driver.quit();
+        Assert.assertTrue(storePage.checkResults(expected));
+
     }
 }

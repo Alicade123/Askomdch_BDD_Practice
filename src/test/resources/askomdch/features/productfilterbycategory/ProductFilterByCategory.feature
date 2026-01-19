@@ -1,3 +1,4 @@
+@filterProductsByCategory
 Feature: Filter products by category
 
   Scenario Outline: Filter products using category dropdown

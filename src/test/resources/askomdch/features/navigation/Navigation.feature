@@ -1,3 +1,4 @@
+@navigation
 Feature: Navigation Functionality
   As a customer
   I want to navigate using navigation bar

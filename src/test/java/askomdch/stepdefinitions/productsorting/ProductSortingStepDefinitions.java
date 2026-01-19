@@ -1,6 +1,8 @@
 package askomdch.stepdefinitions.productsorting;
 
+import askomdch.dependencyinjection.UtilClass;
 import askomdch.utils.DriverFactory;
+import askomdch.utils.WebsiteStateManager;
 import io.cucumber.java.en.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -8,11 +10,12 @@ import org.openqa.selenium.support.ui.Select;
 
 public class ProductSortingStepDefinitions {
     private WebDriver driver = DriverFactory.getDriver();
+    WebsiteStateManager websiteStateManager = new WebsiteStateManager(driver);
 
     private By selectDropDownBy = By.xpath("//select[@aria-label='Shop order']");
     @Given("I am on the store page of the askomdch website")
     public void i_am_on_the_store_page_of_askomdch_website() {
-        driver.get("http://askomdch.com/store");
+        websiteStateManager.loadPage(UtilClass.SITEURL);
     }
 
     @When("I select {string} from the sorting dropdown")
@@ -22,7 +25,7 @@ public class ProductSortingStepDefinitions {
     }
 
     @Then("I should see products sorted by {string}")
-    public void i_should_see_products_sorted_by(String expectedCriteria) {
-        Select dropDown = new Select(driver.findElement(selectDropDownBy));
+    public void i_should_see_products_sorted_by() {
+
     }
 }

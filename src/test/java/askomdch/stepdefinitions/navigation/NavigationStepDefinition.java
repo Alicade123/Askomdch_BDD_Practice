@@ -1,6 +1,6 @@
 package askomdch.stepdefinitions.navigation;
 
-import askomdch.dependencyinjection.UtilClass;
+import askomdch.constants.EndPoint;
 import askomdch.pages.HomePage;
 import askomdch.utils.DriverFactory;
 import askomdch.utils.WebsiteStateManager;
@@ -17,7 +17,7 @@ public class NavigationStepDefinition {
 
     @Given("I'm On any page of the AskOmDch website")
     public void openSite() {
-        websiteStateManager.loadPage(UtilClass.SITEURL);
+        websiteStateManager.loadPage(EndPoint.HOMEPAGE.url);
     }
 
     @When("I click on {string}")

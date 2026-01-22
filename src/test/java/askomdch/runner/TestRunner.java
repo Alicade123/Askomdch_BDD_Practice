@@ -9,10 +9,13 @@ import org.junit.runner.RunWith;
         features = "src/test/resources/askomdch/features",
         glue = {"askomdch.stepdefinitions",
                 "askomdch.hooks",
-                "askomdch.dependencyinjection"
+                "askomdch.dependencyinjection",
+                "askomdch.customtype",
+                "askomdch.domainobject",
+                "askomdch.utils"
                 },
         plugin = "pretty",
-        tags = "@addToCart and not @checkout and not @login and not @navigation and not @filterProductsByCategory and not @filterProductsByPriceRange and not @register"
+        tags = "@addToCart or @checkout and not @login and not @navigation and not @filterProductsByCategory and not @filterProductsByPriceRange and not @register"
 )
 public class TestRunner {
 

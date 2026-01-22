@@ -1,5 +1,6 @@
 package askomdch.stepdefinitions.productfilterbycategory;
 
+import askomdch.constants.EndPoint;
 import askomdch.pages.StorePage;
 import askomdch.utils.DriverFactory;
 import askomdch.utils.WebsiteStateManager;
@@ -17,7 +18,7 @@ public class ProductFilterByCategory {
 
     @Given("I am on the store page")
     public void i_am_on_the_store_page() {
-        websiteStateManager.loadPage("store");
+        websiteStateManager.loadPage(EndPoint.STORE.url);
     }
 
     @When("I select category {string}")

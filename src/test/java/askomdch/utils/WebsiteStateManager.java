@@ -1,6 +1,5 @@
 package askomdch.utils;
 
-import askomdch.dependencyinjection.UtilClass;
 import org.openqa.selenium.WebDriver;
 
 
@@ -10,7 +9,7 @@ public class WebsiteStateManager {
         this.driver = driver;
     }
     public void loadPage(String endPoint) {
-        driver.get(UtilClass.SITEURL + endPoint);
+        driver.get(ConfigLoader.getInstance().getBaseUrl()+endPoint);
         driver.manage().window().maximize();
     }
 }

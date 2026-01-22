@@ -1,5 +1,6 @@
 package askomdch.stepdefinitions.productsorting;
 
+import askomdch.constants.EndPoint;
 import askomdch.dependencyinjection.UtilClass;
 import askomdch.utils.DriverFactory;
 import askomdch.utils.WebsiteStateManager;
@@ -15,7 +16,7 @@ public class ProductSortingStepDefinitions {
     private By selectDropDownBy = By.xpath("//select[@aria-label='Shop order']");
     @Given("I am on the store page of the askomdch website")
     public void i_am_on_the_store_page_of_askomdch_website() {
-        websiteStateManager.loadPage(UtilClass.SITEURL);
+        websiteStateManager.loadPage(EndPoint.STORE.url);
     }
 
     @When("I select {string} from the sorting dropdown")

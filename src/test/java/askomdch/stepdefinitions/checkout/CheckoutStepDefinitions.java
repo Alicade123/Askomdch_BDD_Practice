@@ -1,17 +1,12 @@
 package askomdch.stepdefinitions.checkout;
 
-import askomdch.dependencyinjection.UtilClass;
-import askomdch.pages.AccountPage;
 import askomdch.pages.CheckoutPage;
-import askomdch.pages.DashboardPage;
 import askomdch.pages.StorePage;
 import askomdch.utils.DriverFactory;
-import askomdch.utils.WebsiteStateManager;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.*;
 import org.junit.Assert;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 

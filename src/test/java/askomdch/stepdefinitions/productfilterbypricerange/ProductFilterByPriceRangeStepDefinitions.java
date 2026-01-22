@@ -1,5 +1,6 @@
 package askomdch.stepdefinitions.productfilterbypricerange;
 
+import askomdch.constants.EndPoint;
 import askomdch.pages.StorePage;
 import askomdch.utils.DriverFactory;
 import askomdch.utils.WebsiteStateManager;
@@ -16,7 +17,7 @@ public class ProductFilterByPriceRangeStepDefinitions {
 
     @Given("I'm on the Store page of the AskOmDch Website")
     public void gotToStorePage() {
-        websiteStateManager.loadPage("store");
+        websiteStateManager.loadPage(EndPoint.STORE.url);
     }
 
     @When("I choose the {double} range and {double} range")

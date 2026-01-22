@@ -1,5 +1,6 @@
 package askomdch.stepdefinitions.login;
 
+import askomdch.constants.EndPoint;
 import askomdch.dependencyinjection.UtilClass;
 import askomdch.pages.AccountPage;
 import askomdch.pages.DashboardPage;
@@ -19,7 +20,7 @@ public class LoginStepDefinitions {
 
     @Given("As I'm on the AskOmDch Account Page")
     public void goToAccountPage() {
-        websiteStateManager.loadPage("account");
+        websiteStateManager.loadPage(EndPoint.ACCOUNT.url);
     }
 
     @When("I enter valid credentials {string} and {string}")

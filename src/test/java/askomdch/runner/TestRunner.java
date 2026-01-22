@@ -14,6 +14,6 @@ import org.junit.runner.RunWith;
         plugin = "pretty",
         tags = "@addToCart and not @checkout and not @login and not @navigation and not @filterProductsByCategory and not @filterProductsByPriceRange and not @register"
 )
-public class TestRunnerClass {
+public class TestRunner {
 
 }

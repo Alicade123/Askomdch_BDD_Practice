@@ -15,8 +15,10 @@ import org.junit.runner.RunWith;
                 "askomdch.utils"
                 },
         plugin = "pretty",
-        tags = "@addToCart or @checkout and not @login and not @navigation and not @filterProductsByCategory and not @filterProductsByPriceRange and not @register"
+        tags = "@login and @negativeScenario"
+//        tags = "@addToCart or @checkout and not @login and not @navigation and not @filterProductsByCategory and not @filterProductsByPriceRange and not @register"
 )
+
 public class TestRunner {
 
 }

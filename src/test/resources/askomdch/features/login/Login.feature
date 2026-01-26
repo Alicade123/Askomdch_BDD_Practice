@@ -25,5 +25,5 @@ Feature: Login Functionality
     Then I should see error "<error_message>"
     Examples:
       | username      | password | error_message                                                                                                                    |
-      | USADeltaForce | 00000    | Error: The password you entered for the username USADeltaForce is incorrect. Lost your password?                                  |
+      | USADeltaForce | 00000    | Error: These password you entered for the username USADeltaForce is incorrect. Lost your password?                                  |
       | Pass456!      | Pass456! | Error: The username Pass456! is not registered on this site. If you are unsure of your username, try your email address instead. |
